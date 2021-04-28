@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-
-		<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-			
+	<title>PHP Data Fetch</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">		
 </head>
 <body>
-
     <div class="container">
         <div class="card" style="width: 18rem;">
+       
         <?php
           
             $json = file_get_contents('https://www.instagram.com/p/CKow063A0bp/?__a=1');
@@ -18,7 +16,7 @@
             $obj = json_decode($json);
 
             echo '
-            <img class="img img-responsive" src="'.$obj->graphql->shortcode_media->display_url.'" id="postImage" class="card-img-top" alt="...">
+            <img class="img img-responsive" src="'.$obj->graphql->shortcode_media->display_url.'" id="postImage" class="card-img-top" alt="Image">
                   
             <p>Username : <strong><span id="instaUsername">'.$obj->graphql->shortcode_media->owner->username.'</span></strong> </p>
             
@@ -36,11 +34,8 @@
 
         ?>
                 
-                </div>
-        </div>
-
+         </div>
     </div>
-
-
+</div>
 </body>
 </html>
